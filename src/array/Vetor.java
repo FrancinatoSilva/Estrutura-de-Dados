@@ -1,7 +1,5 @@
 package array;
 
-import java.util.Arrays;
-
 public class Vetor {
 
     private String[] elementos;
@@ -20,6 +18,24 @@ public class Vetor {
             return true;
         }
         return false;
+    }
+
+    public String busca(int posicao) {
+        if (!(posicao >= 0 && posicao < tamanho)) {
+            throw new IllegalArgumentException("Posição inválida");
+        }
+        return this.elementos[posicao];
+    }
+
+    //Algoritmo de busca sequencial
+    public int elementoExiste(String elemento) {
+        for (int i=0; i<this.tamanho; i++) {
+            if (this.elementos[i].equalsIgnoreCase(elemento)) {
+                return i;
+            }
+        }
+        return -1;
+
     }
 
     public int tamanho() {
